@@ -20,19 +20,23 @@ useEffect(()=>{
       });
 }, []);
 
-useEffect(()=>{
-    db.collection("entries")
+useEffect( ()=>{
+    let isMounted = true;
+     db.collection("entries")
     .orderBy("createdAt", "desc")
     .onSnapshot((querySnapshot) => {
+        
         const _entries = [];
         querySnapshot.forEach((doc) =>{
+            
             _entries.push({
                 id: doc.id,
                 ...doc.data()
             })
         })
-        setEntries(_entries)
-    });
+        if(isMounted){setEntries(_entries)}
+        
+    });return() => {isMounted = false}
 }, []);
 return(
     <>

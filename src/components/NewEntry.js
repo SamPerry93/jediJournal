@@ -1,55 +1,56 @@
 import React, { useState } from "react";
-import styled from 'styled-components';
 import db from "../lib/firebase";
+import '../styles/entries.css';
 
 const NewEntry = () => {
     
     const [title, setTitle] = useState("");
-    
+    const [code, setCode] = useState("")
+    const [mood, setMood] = useState("")
 
-    const Button = styled.button`
-        background: #333;
-        color: #fefefe;
-        font-size: 1em;
-        margin: 1em;
-        padding: 0.25em 1em;
-        border-radius: 3px;
-    `
-    const Text = styled.textarea`
-        height: 140px;
-        width: 50vw;
-        background: #3d3d3d;
-        color: #fefefe;
-        font-size: 1em;
-        margin: 1em;
-        margin-bottom: 0;
-        padding: 0.25em 1em;
-        border: 2px solid #fefefe;
-    `
-    const Flex = styled.div`
-        display: flex;
-        flex-direction:column;
-        justify-content: center;
-        align-items: center;
-    `
+   
 
     const handleSubmit = async () => {
         const date = new Date();
 
         await db.collection("entries").add({
             title,
+            mood,
+            code,
             createdAt: date.toUTCString(),
+            localDate: date.toDateString()
         });
         
         setTitle("");
+        setMood("");
+        setCode("")
     };
 
     return(
         <>
-            <Flex>
-            <Text value={title} cols="60" rows="5" onChange={(e) => setTitle(e.target.value)}/>
-            <Button onClick={handleSubmit}>Click</Button>
-            </Flex>
+        <div className="new-entry-container">
+            <h2>Your Entry</h2>
+            <div className="new-entry-form">
+            <textarea maxLength="245" placeholder="What is your thought for today..." value={title} cols="60" rows="5" onChange={(e) => setTitle(e.target.value)}/>
+            
+                <div className="button-group" >
+                    <h3>How did you live the Jedi Code?</h3>
+                    <div className="code-buttons" >
+                        <button value="Peaceful" onClick={(e)=>setCode(e.target.value)}>Peace</button> 
+                        <button value="Harmonious" onClick={(e)=>setCode(e.target.value)}>Harmony</button>  
+                        <button value="Serenity" onClick={(e)=>{setCode(e.target.value) }}>Serenity</button>
+                    </div>
+                    <h3>How did you feel?</h3>
+                <div className="mood-buttons" >
+                    <button value="#63b4ff" onClick={(e)=>setMood(e.target.value)}>Physical</button>   
+                    <button value="#58d381" onClick={(e)=>setMood(e.target.value)}>Spiritual</button> 
+                    <button value="#e4e06b" onClick={(e)=>setMood(e.target.value)}>Skillful</button>
+                    <button value="#ebf5ff" onClick={(e)=>setMood(e.target.value)}>Balanced</button>
+                </div> 
+                </div>   
+                <button onClick={handleSubmit} style={{background: mood}}>Save Entry</button>
+            </div>
+        </div>
         </>
     )
 }

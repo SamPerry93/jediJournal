@@ -1,0 +1,127 @@
+button {
+  cursor: pointer;
+}
+.entry-container {
+  display: flex;
+  width: 100vw;
+  word-wrap: normal;
+  background-color: #333a41;
+  color: #dceeff;
+}
+.entry {
+  margin: 1em;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  background-color: #282c34;
+}
+.entry-text {
+  text-align: left;
+}
+.entry-date {
+  text-align: right;
+  font-size: 0.5rem;
+}
+.entry-code {
+  font-size: 0.75rem;
+}
+.new-entry-container {
+  width: 100vw;
+  height: 70vh;
+  color: #dceeff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.new-entry-container > h2 {
+  align-self: flex-start;
+  padding-left: 2em;
+}
+.new-entry-form {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.new-entry-form > textarea,
+.new-entry-form > input {
+  width: 80%;
+  background-color: #dceeff;
+  border: 3px solid #dceeff;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.7s;
+}
+.new-entry-form > textarea {
+  font-size: 0.9rem;
+  resize: none;
+}
+.new-entry-form > textarea:focus,
+.new-entry-form > input:focus {
+  border: 3px solid #63b4ff;
+}
+.new-entry-form > input {
+  text-align: center;
+  margin: 1em;
+  width: 50%;
+  font-size: 1rem;
+}
+.button-group {
+  width: 100%;
+}
+.code-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.code-buttons > button {
+  margin: 1rem 0.5rem;
+  margin-bottom: 0;
+  height: 35px;
+  width: 4.5rem;
+  background-color: #98bbdc;
+  border: none;
+  border-radius: 5px;
+}
+.code-buttons > button:focus {
+  background-color: #63798e;
+}
+.mood-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: background 1s;
+}
+.mood-buttons > button {
+  margin: 1rem 0.5rem;
+  height: 35px;
+  width: 20%;
+  border: none;
+  border-radius: 5px;
+}
+.mood-buttons > button:focus {
+  border: 3px solid transparent;
+}
+.mood-buttons > button:nth-child(1) {
+  background-color: #63b4ff;
+}
+.mood-buttons > button:nth-child(2) {
+  background-color: #58d381;
+}
+.mood-buttons > button:nth-child(3) {
+  background-color: #e4e06b;
+}
+.mood-buttons > button:nth-child(4) {
+  background-color: #ebf5ff;
+}
+/* submit button */
+.new-entry-form > button {
+  align-self: flex-end;
+  margin: 1em 1.5em;
+  width: 30%;
+  height: 3rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #63b4ff;
+}

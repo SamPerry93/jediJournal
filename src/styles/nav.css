@@ -1,0 +1,20 @@
+.nav-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  height: 20vh;
+  background-color: #2e3950;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+}
+.link {
+  font-size: 1.5rem;
+  color: #fefefe;
+  text-decoration: none;
+}
