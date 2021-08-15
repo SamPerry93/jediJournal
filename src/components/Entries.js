@@ -3,8 +3,10 @@ import db from '../lib/firebase';
 import Entry from './Entry';
 const Entries = () => {
     const [entries,setEntries] = useState([]);
+    const [loading, setLoading] = useState(true)
 
 useEffect(()=>{
+    setLoading(true)
     db.collection("entries")
     .orderBy("createdAt", "desc")
     .get()
@@ -16,14 +18,16 @@ useEffect(()=>{
             ...doc.data(),
         }));
         //setting the state of posts
+        setLoading(false)
         setEntries(data);
       });
 }, []);
 
 useEffect( ()=>{
+    setLoading(true)
     let isMounted = true;
      db.collection("entries")
-    .orderBy("createdAt", "desc")
+    .orderBy("createdAt", "asc")
     .onSnapshot((querySnapshot) => {
         
         const _entries = [];
@@ -35,18 +39,18 @@ useEffect( ()=>{
             })
         })
         if(isMounted){setEntries(_entries)}
-        
+        setLoading(false)
     });return() => {isMounted = false}
 }, []);
 return(
     <>
-    <h1>Entries</h1>
-    
-    {entries.map((entry) => (
-        // console.log(entry.text)
-          <Entry entry={entry} key={entry.id}/>
-
-    ))}
-</>
+    <h3>Entries</h3>
+    {loading ? (<><div className="entry"/><div className="entry"/><div className="entry"/></>):(
+        <div className="all-entries-container">
+        {entries.map((entry) => (
+          <Entry entry={entry} key={entry.id}/>))}
+        </div>
+    )}
+    </>
 )}
 export default Entries;

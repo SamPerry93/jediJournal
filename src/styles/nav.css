@@ -1,20 +1,77 @@
+@font-face {
+  font-family: Aur;
+  src: url(../styles/fonts/Aurebesh.otf);
+}
+@font-face {
+  font-family: Robo;
+  src: url(../styles//fonts/Roboto-Regular.ttf);
+}
+h1,
+h2,
+h3 {
+  font-family: Aur;
+}
+body {
+  font-family: Robo;
+}
 .nav-container {
   margin: 0;
   padding: 0;
   width: 100vw;
+  font-family: Aur;
 }
 ul {
   margin: 0;
-  padding: 0;
-  height: 20vh;
-  background-color: #2e3950;
+  padding: 1.5rem 0;
+  border-bottom: 3px solid #dceaff;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   list-style-type: none;
 }
 .link {
-  font-size: 1.5rem;
-  color: #fefefe;
+  font-size: 1.25rem;
+  color: #dceaff;
   text-decoration: none;
+}
+i {
+  color: #dceaff;
+}
+.link-container {
+  padding: 1rem;
+  width: 125px;
+  height: 85px;
+  background-color: #3c4556;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.link-container > p {
+  margin: 0;
+}
+@media screen and (max-width: 800px) {
+  ul {
+    margin: 0;
+    padding: 0;
+    border-bottom: 3px solid #dceaff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    background-color: #3c4556;
+  }
+  .link-container {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    text-align: center;
+    background-color: transparent;
+  }
+  .link {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+  }
 }

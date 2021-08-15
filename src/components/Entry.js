@@ -4,14 +4,14 @@ import '../styles/entries.css';
 const Entry = ({entry}) => {
     return(
         <>
-           <div className="entry-container" style={{
-           background: entry.mood 
-           }}>
+           
                <div className="entry">
                     <p className="entry-text" key={`text_${entry.id}`}>{entry.title}</p>
-                    <p className="entry-date" key={`date_${entry.id}`}>{entry.localDate}</p>
-                    <p className="entry-code" key={`code_${entry.id}`}>Feeling {entry.code}</p>
-                </div>
+                    <span className="entry-date" key={`date_${entry.id}`}>{entry.localDate}</span>
+                    <span className="entry-code" key={`code_${entry.id}`}>Feeling {entry.code}</span>
+                    <div className="entry-container" style={{
+           background: entry.mood, width: '15px', height: '15px',borderRadius:'100%'
+           }}></div>
             </div>
             
         </>

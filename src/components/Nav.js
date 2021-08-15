@@ -1,4 +1,6 @@
 import React from 'react';
+import { FiPlus } from 'react-icons/fi';
+import { RiBookFill, RiHomeFill } from 'react-icons/ri';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import '../styles/nav.css';
 import Entries from './Entries';
@@ -11,9 +13,12 @@ const Nav = () => {
         <BrowserRouter>
         <div className="nav-container">
             <ul>
-                <li><Link className="link" to="/">Home</Link></li>
-                <li><Link className="link" to="/entries">All Entries</Link></li>
-                <li><Link className="link" to="/new_entry">New Entry</Link></li>
+            <Link className="link" to="/"><div className="link-container">
+                <li><i><RiHomeFill/></i></li><p>Home</p></div></Link>
+                <Link className="link" to="/entries"><div className="link-container">
+                <li><i><RiBookFill/></i></li><p>See Yours</p></div></Link>
+                <Link className="link" to="/new_entry"><div className="link-container">
+                <li><i><FiPlus/></i></li><p>Add Entry</p></div></Link>
             </ul>
         </div>
       <Switch>

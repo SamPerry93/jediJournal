@@ -8,8 +8,6 @@ const NewEntry = () => {
     const [code, setCode] = useState("")
     const [mood, setMood] = useState("")
 
-   
-
     const handleSubmit = async () => {
         const date = new Date();
 
@@ -20,7 +18,6 @@ const NewEntry = () => {
             createdAt: date.toUTCString(),
             localDate: date.toDateString()
         });
-        
         setTitle("");
         setMood("");
         setCode("")
@@ -29,18 +26,17 @@ const NewEntry = () => {
     return(
         <>
         <div className="new-entry-container">
-            <h2>Your Entry</h2>
             <div className="new-entry-form">
-            <textarea maxLength="245" placeholder="What is your thought for today..." value={title} cols="60" rows="5" onChange={(e) => setTitle(e.target.value)}/>
-            
+                <div className="text-area">
+            <textarea maxLength="245" placeholder="What is your thought for today..." value={title} cols="60" rows="5" onChange={(e) => setTitle(e.target.value)}/></div>
                 <div className="button-group" >
-                    <h3>How did you live the Jedi Code?</h3>
+                    <label>How did you live the Jedi Code?</label>
                     <div className="code-buttons" >
                         <button value="Peaceful" onClick={(e)=>setCode(e.target.value)}>Peace</button> 
                         <button value="Harmonious" onClick={(e)=>setCode(e.target.value)}>Harmony</button>  
                         <button value="Serenity" onClick={(e)=>{setCode(e.target.value) }}>Serenity</button>
                     </div>
-                    <h3>How did you feel?</h3>
+                    <label>How did you feel?</label>
                 <div className="mood-buttons" >
                     <button value="#63b4ff" onClick={(e)=>setMood(e.target.value)}>Physical</button>   
                     <button value="#58d381" onClick={(e)=>setMood(e.target.value)}>Spiritual</button> 
