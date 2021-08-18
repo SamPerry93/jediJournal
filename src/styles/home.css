@@ -1,18 +1,44 @@
 .home-container {
   margin: 10%;
   padding: 1rem;
+  position: absolute;
   font-size: 2.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1e232c;
+  background-color: #16171a;
   border-radius: 5%;
+}
+.shuffle-button {
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fefefe;
+  background: transparent;
+  border: 1px solid #fefefe;
+  border-radius: 100%;
+}
+.title-top {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 0.25rem 0;
+  background: #16171a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-top > i {
+  font-size: 4rem;
 }
 
 @media screen and (max-width: 800px) {
   .home-container {
-    margin: 5%;
-    font-size: 1.25rem;
+    margin: 1rem;
+    font-size: 1rem;
   }
 }

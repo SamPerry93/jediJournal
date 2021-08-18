@@ -9,7 +9,6 @@ import NewEntry from './NewEntry';
 const Nav = () => {
     return(
         <>
-        
         <BrowserRouter>
         <div className="nav-container">
             <ul>
@@ -27,9 +26,7 @@ const Nav = () => {
         <Route path="/new_entry"><NewEntry/></Route>
       </Switch>
       </BrowserRouter>
-        
-        
-        </>
+     </>
     )
 }
 export default Nav;

@@ -27,12 +27,10 @@ useEffect( ()=>{
     setLoading(true)
     let isMounted = true;
      db.collection("entries")
-    .orderBy("createdAt", "asc")
+    .orderBy("createdAt", "desc")
     .onSnapshot((querySnapshot) => {
-        
         const _entries = [];
         querySnapshot.forEach((doc) =>{
-            
             _entries.push({
                 id: doc.id,
                 ...doc.data()
@@ -45,7 +43,7 @@ useEffect( ()=>{
 return(
     <>
     <h3>Entries</h3>
-    {loading ? (<><div className="entry"/><div className="entry"/><div className="entry"/></>):(
+    {loading ? (<><div style={{height: 120}} className="entry"/><div style={{height: 120}} className="entry"/><div style={{height: 120}}className="entry"/></>):(
         <div className="all-entries-container">
         {entries.map((entry) => (
           <Entry entry={entry} key={entry.id}/>))}
